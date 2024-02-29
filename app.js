@@ -10,6 +10,9 @@ const cards = [
 ];
 
 const appBoard = document.getElementById('appBoard')
+const compteurElm = document.querySelector('.compteur')
+const winElm = document.querySelector('.win')
+
 
 function createCard(CardUrl) {
 
@@ -70,13 +73,23 @@ function handleClick(e) {
         console.log(matchedCard[0])
         console.log( matchedCard[1] )
         if (matchedCard[0].dataset.value == matchedCard[1].dataset.value ) {
+            compteur++
+            compteurElm.textContent = compteur
+            let attempt = "tentative"
+            if (compteur > 1) {
+                attempt = 'tentatives'
+            }
+            winElm.textContent = `Tu as gagné avec ${compteur} ${attempt}`
+
             matchedCard[0].classList.add("matched");
             matchedCard[1].classList.add("matched");
             matchedCard[0].removeEventListener('click', handleClick);
             matchedCard[1].removeEventListener('click', handleClick);
+            alert('gagné')
         }
         else {
             compteur++
+            compteurElm.textContent = `${compteur}`
             matchedCard[0].classList.remove("flip");
             matchedCard[1].classList.remove("flip");
         }
