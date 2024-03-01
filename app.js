@@ -23,7 +23,10 @@ function createCard(CardUrl) {
 
 
     const img = document.createElement('img')
-    img.classList.add('card-content')
+    setTimeout(() => {
+        img.classList.add('card-content')  
+    }, 2000);
+    
     img.src = CardUrl
     img.alt = "image"
 
