@@ -85,7 +85,11 @@ function handleClick(e) {
             matchedCard[1].classList.add("matched");
             matchedCard[0].removeEventListener('click', handleClick);
             matchedCard[1].removeEventListener('click', handleClick);
-            alert('gagné')
+            const notMached = document.querySelectorAll('.img:not(.matched)')
+            if(notMached == 0){
+                alert('gagné')
+            }
+           
         }
         else {
             compteur++
