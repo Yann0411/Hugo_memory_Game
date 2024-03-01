@@ -79,15 +79,15 @@ function handleClick(e) {
             if (compteur > 1) {
                 attempt = 'tentatives'
             }
-            winElm.textContent = `Tu as gagné avec ${compteur} ${attempt}`
+           
 
             matchedCard[0].classList.add("matched");
             matchedCard[1].classList.add("matched");
             matchedCard[0].removeEventListener('click', handleClick);
             matchedCard[1].removeEventListener('click', handleClick);
             const notMached = document.querySelectorAll('.img:not(.matched)')
-            if(notMached == 0){
-                alert('gagné')
+            if(notMached.length == 0){
+                winElm.textContent = `Tu as gagné avec ${compteur} ${attempt}`
             }
            
         }
